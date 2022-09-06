@@ -1,6 +1,9 @@
 <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
 <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
 
+<script src="gesture-detector.js"></script>
+<script src="gesture-handler.js"></script>
+
 <style>
   .arjs-loader {
     height: 100%;
@@ -32,10 +35,9 @@
     renderer="logarithmicDepthBuffer: true; precision: medium;"
     embedded
     arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
+    id="scene"
   >
     <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
-    <!-- /nft/trex/trex-image/trex -->
-    <!-- image_tracking/nft/trex/scene.gltf -->
     <a-nft
       type="nft"
       url="./image_tracking/nft/detail_hand/detail_hand_poster_half"
@@ -43,11 +45,19 @@
       smoothCount="10"
       smoothTolerance=".01"
       smoothThreshold="5"
+
+      raycaster="objects: .clickable"
+      emitevents="true"
+      cursor="fuse: false; rayOrigin: mouse;"
+
     >
       <a-entity
         gltf-model="./image_tracking/nft/mesh.glTF"
         scale="5 5 5"
         position="50 150 0"
+
+        class="clickable"
+        gesture-handler="minScale: 0.25; maxScale: 10"
       >
       </a-entity>
     </a-nft>
