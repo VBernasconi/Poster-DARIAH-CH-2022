@@ -17,7 +17,13 @@
     justify-content: center;
     align-items: center;
   }
-
+  .description{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
   .arjs-loader div {
     text-align: center;
     font-size: 1.25em;
@@ -28,39 +34,34 @@
 <body style="margin : 0px; overflow: hidden;">
   <!-- minimal loader shown until image descriptors are loaded -->
   <div class="arjs-loader">
-    <div>Loading, please wait...</div>
+    Augmenting art history: a new story of the painted hand
   </div>
-  <a-scene
-    vr-mode-ui="enabled: false;"
-    renderer="logarithmicDepthBuffer: true; precision: medium;"
-    embedded
-    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
-    id="scene"
-  >
-    <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
-    <a-nft
-      type="nft"
-      url="./image_tracking/nft/detail_hand/detail_hand_poster_half"
-      smooth="true"
-      smoothCount="10"
-      smoothTolerance=".01"
-      smoothThreshold="5"
+  <div class="description">
+    The use of computational methods within the field of art history is usually
+    restricted to digitization and archiving tools, allowing the preservation of
+    digital collections and their online access to the world. However, over the
+    past decade, many projects have shown the possibility to use computer vision
+    and machine learning methods to automate tasks on large corpuses of paintings
+    and to better outline recurrent patterns. Unfortunately, these works are often
+    overlooked by art historians who have limited access to these complex computational
+    methods and might sometimes perceive them as an intrusion of the scientific
+    methodology to their field.
 
-      raycaster="objects: .clickable"
-      emitevents="true"
-      cursor="fuse: false; rayOrigin: mouse;"
+    The aim of the present project is to showcase what computer science has to
+    offer beyond automated data processing and to propose tracks towards new
+    methodoloical approaches, allowing new perceptions of artworks and artistic
+    practice.
 
-    >
-      <a-entity
-        gltf-model="./image_tracking/nft/scene.gltf"
-        scale="5 5 5"
-        position="50 150 0"
-
-        class="clickable"
-        gesture-handler="minScale: 0.25; maxScale: 10"
-      >
-      </a-entity>
-    </a-nft>
-    <a-entity camera></a-entity>
-  </a-scene>
+    Through a research project on computational and historical analysis of hands
+    and gestures in early modern time, where different technologies are used to
+    better grasp the many dimensions of the painted hand, the idea of the machine
+    as a new agent in the relationship between paintings and art historians is
+    envisioned. This exploration has many facets, one of which is the creation of
+    an interactive tool to facilitate research on a large corpus of painted hands,
+    directly using the hand gesture of the user as a query. Fostering a new
+    understanding of painted hand gestures through computer vision, animations
+    and enactment, the goal is to propose, through the eye of the machine, a new
+    way of seeing.
+  </div>
+  <button type="button" href="process.html">Read the poster</button>
 </body>
