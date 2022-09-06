@@ -1,0 +1,57 @@
+<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+<style>
+  .arjs-loader {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .description{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .arjs-loader div {
+    text-align: center;
+    font-size: 1.25em;
+    color: white;
+  }
+</style>
+
+<body style="margin : 0px; overflow: hidden;">
+  <!-- minimal loader shown until image descriptors are loaded -->
+  <div class="arjs-loader">
+    The Pose Annotations Project for Artworks (PAPA) project
+  </div>
+  <div class="description">
+    As you may have seen from the index finger, the accuracy of machine learning
+    models, when applied to artworks, is significantly lower. Indeed, most models
+    are trained on real images, datasets of pictures gathered from the internet
+    and which depict our modern western way of life. These representations are far
+    from the pictorial realism of the Early Modern Time, which explains the difficulties
+    of the machine when confronted to these new images. One of the many solutions
+    to increase the accuracy of the results is to create a proper training dataset
+    for artworks. However, the process is usually long and requires the help of
+    annotators to mark each image with keypoints for the task of body pose estimation.
+    The PAPA project aims to build such a dataset with the help of pationate people
+    and propose an online platform where the photographic collection of the Bibliotheca
+    Hertziana can be annotated in order to retrain the model primarily used to detect
+    body poses.
+
+    <iframe width="560" height="315" src="https://papa.valentinebernasconi.ch/Home" title="PAPA project" frameborder="0" allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+  </div>
+  <button type="button" href="process.html">Back to the poster</button>
+</body>
