@@ -9,6 +9,8 @@
   AFRAME.registerComponent('marker_main_baladeuse', {
     init: function () {
       this.el.sceneEl.addEventListener('markerFound', () => {
+
+        console.log("Found marker main baladeuse");
         // redirect to custom URL e.g. google.com
         window.location = 'https://vbernasconi.github.io/main_baladeuse.html';
       })
@@ -19,7 +21,7 @@
   AFRAME.registerComponent('marker_papa_project', {
     init: function () {
       this.el.sceneEl.addEventListener('markerFound', () => {
-        // redirect to custom URL e.g. google.com
+        console.log("Found marker papa project");
         window.location = 'https://vbernasconi.github.io/papa_project.html';
       })
     }
@@ -27,7 +29,7 @@
   AFRAME.registerComponent('marker_gab_application', {
     init: function () {
       this.el.sceneEl.addEventListener('markerFound', () => {
-        // redirect to custom URL e.g. google.com
+        console.log("Found marker gab application");
         window.location = 'https://vbernasconi.github.io/gab_application.html';
       })
     }
