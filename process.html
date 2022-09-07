@@ -6,18 +6,22 @@
 
 <script>
   //Trigger action when marker has been found https://ar-js-org.github.io/AR.js-Docs/ui-events/
-  AFRAME.registerComponent('marker_main_baladeuse', {
+  AFRAME.registerComponent('marker_', {
+    schema: {
+      webpage:{type: 'string', default: 'https://vbernasconi.github.io'}
+    }
     init: function () {
       this.el.sceneEl.addEventListener('markerFound', () => {
 
         console.log("Found marker main baladeuse");
         // redirect to custom URL e.g. google.com
-        window.location = 'https://vbernasconi.github.io/main_baladeuse.html';
+        window.location = self.data.webpage; //'https://vbernasconi.github.io/main_baladeuse.html';
       })
     }
   });
 
   //Trigger action when marker has been found https://ar-js-org.github.io/AR.js-Docs/ui-events/
+/*
   AFRAME.registerComponent('marker_papa_project', {
     init: function () {
       this.el.sceneEl.addEventListener('markerFound', () => {
@@ -33,7 +37,7 @@
         window.location = 'https://vbernasconi.github.io/gab_application.html';
       })
     }
-  });
+  });*/
 </script>
 
 <style>
@@ -72,21 +76,19 @@
     <!-- openpose -->
     <a-nft type="nft" url="./image_tracking/nft/detail_hand/detail_hand_poster_half"
       smooth="true" smoothCount="10" smoothTolerance=".01" smoothThreshold="5">
-      <a-entity  gltf-model="./image_tracking/nft/scene.gltf" scale="5 5 5" position="50 150 0">
-      </a-entity>
+      <a-image src="./image_tracking/nft/GAGA_bibhertz.png" scale="5 5 5" position="50 150 0">
+      </a-image>
     </a-nft>
     <!-- the collection
     <a-nft marker_ type="nft" url="./image_tracking/nft/detail_hand/detail_hand_poster_half">
       <a-image id="test" src="yourimage.png" position="0 0 0" rotation="-90 0 0" width="" height="" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="1 1 1" visible="" material="" geometry=""></a-image>
     </a-nft>-->
     <!-- PAPA project
-    <a-marker preset="hiro">
-      <a-nft marker_papa_project type="nft" url="./image_tracking/nft/detail_hand/openpose">
-      </a-nft>
-    </a-marker>
+    <a-nft marker_papa_project  type="nft" url="./image_tracking/nft/detail_hand/detail_hand_poster_half">
+    </a-nft>
     -->
     <!-- GAB application-->
-    <a-nft marker_gab_application type="nft" url="./image_tracking/nft/detail_hand/gab_application">
+    <a-nft marker_="webpage: 'https://vbernasconi.github.io/main_baladeuse.html'" type="nft" url="./image_tracking/nft/detail_hand/gab_application">
       <div class="spinner-border text-danger" role="status">
         <span class="visually-hidden">Loading...</span>
       </div>
