@@ -4,6 +4,36 @@
 <script src="gesture_detector.js"></script>
 <script src="gesture_handler.js"></script>
 
+<script>
+  //Trigger action when marker has been found https://ar-js-org.github.io/AR.js-Docs/ui-events/
+  AFRAME.registerComponent('marker_main_baladeuse', {
+    init: function () {
+      this.el.sceneEl.addEventListener('markerFound', () => {
+        // redirect to custom URL e.g. google.com
+        window.location = 'https://vbernasconi.github.io/main_baladeuse.html';
+      })
+    }
+  });
+
+  //Trigger action when marker has been found https://ar-js-org.github.io/AR.js-Docs/ui-events/
+  AFRAME.registerComponent('marker_papa_project', {
+    init: function () {
+      this.el.sceneEl.addEventListener('markerFound', () => {
+        // redirect to custom URL e.g. google.com
+        window.location = 'https://vbernasconi.github.io/papa_project.html';
+      })
+    }
+  });
+  AFRAME.registerComponent('marker_gab_application', {
+    init: function () {
+      this.el.sceneEl.addEventListener('markerFound', () => {
+        // redirect to custom URL e.g. google.com
+        window.location = 'https://vbernasconi.github.io/gab_application.html';
+      })
+    }
+  });
+</script>
+
 <style>
   .arjs-loader {
     height: 100%;
@@ -49,17 +79,13 @@
     </a-nft>-->
     <!-- PAPA project -->
     <a-nft marker_papa_project type="nft" url="./image_tracking/nft/detail_hand/openpose">
-      <a-image id="test" src="yourimage.png" position="0 0 0" rotation="-90 0 0" width="" height="" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="1 1 1" visible="" material="" geometry=""></a-image>
     </a-nft>
     <!-- GAB application-->
-    <a-nft marker_ type="nft" url="./image_tracking/nft/detail_hand/gab_application">
-      <a-image id="test" src="yourimage.png" position="0 0 0" rotation="-90 0 0" width="" height="" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="1 1 1" visible="" material="" geometry=""></a-image>
+    <a-nft marker_gab_application type="nft" url="./image_tracking/nft/detail_hand/gab_application">
     </a-nft>
     <!-- main baladeuse-->
     <a-nft marker_main_baladeuse type="nft" url="./image_tracking/nft/detail_hand/new_perceptions">
-      <a-image id="test" src="image_display/gif/KNN_movie_2022-08-17_16-07.gif" position="0 0 0" rotation="-90 0 0" width="" height="" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="1 1 1" visible="" material="" geometry=""></a-image>
     </a-nft>
-
     <!-- conclusion -->
     <a-nft type="nft" url="./image_tracking/nft/detail_hand/conclusion">
       <a-image id="test" src="image_display/gif/KNN_movie_2022-08-17_16-07.gif" position="0 0 0" rotation="-90 0 0" width="" height="" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="1 1 1" visible="" material="" geometry=""></a-image>
@@ -67,26 +93,4 @@
 
     <a-entity camera></a-entity>
   </a-scene>
-
-  <script>
-    //Trigger action when marker has been found https://ar-js-org.github.io/AR.js-Docs/ui-events/
-    AFRAME.registerComponent('marker_main_baladeuse', {
-      init: function () {
-        this.el.sceneEl.addEventListener('markerFound', () => {
-          // redirect to custom URL e.g. google.com
-          window.location = 'https://vbernasconi.github.io/main_baladeuse.html';
-        })
-      }
-    });
-
-    //Trigger action when marker has been found https://ar-js-org.github.io/AR.js-Docs/ui-events/
-    AFRAME.registerComponent('marker_papa_project', {
-      init: function () {
-        this.el.sceneEl.addEventListener('markerFound', () => {
-          // redirect to custom URL e.g. google.com
-          window.location = 'https://vbernasconi.github.io/papa_project.html';
-        })
-      }
-    });
-  </script>
 </body>
