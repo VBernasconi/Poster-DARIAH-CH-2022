@@ -8,8 +8,8 @@
   //Trigger action when marker has been found https://ar-js-org.github.io/AR.js-Docs/ui-events/
   AFRAME.registerComponent('marker_', {
     schema: {
-      webpage:{type: 'string', default: 'https://vbernasconi.github.io'}
-    }
+      webpage: {type: 'string', default: 'https://vbernasconi.github.io'}
+    },
     init: function () {
       this.el.sceneEl.addEventListener('markerFound', () => {
 
