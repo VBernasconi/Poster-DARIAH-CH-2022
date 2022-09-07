@@ -1,5 +1,7 @@
 <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
 <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+<script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+<script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script>
 
 <script src="gesture_detector.js"></script>
 <script src="gesture_handler.js"></script>
@@ -99,7 +101,8 @@
     <!-- conclusion -->
     <a-nft type="nft" url="./image_tracking/nft/detail_hand/conclusion"
       smooth="true" smoothCount="5" smoothTolerance="0.01" smoothThreshold="2">
-      <a-image id="test" src="image_display/gif/KNN_movie_2022-08-17_16-07.gif" position="100 50 0" rotation="-90 0 0" opacity="1" transparent="true" scale="800 800 800"></a-image>
+      <a-entity id="test" material="shader:gif; src:url(image_display/gif/KNN_movie_2022-08-17_16-07.gif)" position="100 50 0" rotation="-90 0 0" 
+        opacity="1" transparent="true" scale="800 800 800"></a-entity>
     </a-nft>
 
     <a-entity camera></a-entity>
