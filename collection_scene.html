@@ -28,15 +28,15 @@
 
     var scene = document.querySelector('a-scene');
     for (const [i, file] of filelist.entries()) {
-      var x = Math.floor(Math.random() * 200);
-      var y = Math.floor(Math.random() * 200);
-      var z = Math.floor(Math.random() * 200);
+      var x = Math.floor(Math.random() * 400);
+      var y = Math.floor(Math.random() * 400);
+      var z = Math.floor(Math.random() * 400);
 
       var model = document.createElement('a-image');
       model.setAttribute('src', 'image_display/output_hands_converted/'+file);
       model.object3D.position.set(x, y, z);
       model.object3D.rotation.set(90, 0 , 0);
-      model.object3D.scale.set(800, 800, 800);
+      model.object3D.scale.set(500, 500, 500);
       model.setAttribute('opacity', 1);
       /* model.setAttribute('src', 'image_display/output_hands_converted/'+file);
       model.setAttribute('opacity', 1);
