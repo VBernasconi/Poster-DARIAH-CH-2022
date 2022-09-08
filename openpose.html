@@ -6,10 +6,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <script>
+      document.getElementById("imgClickAndChange").addEventListener("click", changeImage);
       function changeImage() {
-          if (document.getElementById("imgClickAndChange").src == "image_display/bhim00033971.jpg"){
-              document.getElementById("imgClickAndChange").src = "image_display/bhim00033971_rendered.png";
-            }
+        document.getElementById("imgClickAndChange").src = "image_display/bhim00033971_rendered.png";
       };
     </script>
     <style>
