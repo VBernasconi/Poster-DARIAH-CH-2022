@@ -33,11 +33,15 @@
       z = Math.floor(Math.random() * 200);
 
       var model = document.createElement('a-image');
-      model.setAttribute('src', 'image_display/output_hands_converted/'+file);
+      model.object3D.position.set(x, y, z);
+      model.object3D.rotation.set(90, 0 , 0);
+      model.object3D.scale.set(800, 800, 800);
+      model.object3D.opacity.set(1);
+      /* model.setAttribute('src', 'image_display/output_hands_converted/'+file);
       model.setAttribute('opacity', 1);
       model.setAttribute('rotation', {x:90, y:0, z:0});
       model.setAttribute('scale', {x:800, y:800, z:800});
-      model.setAttribute('position', {x: x, y: y, z: z});
+      model.setAttribute('position', {x: x, y: y, z: z});*/
 
       console.log(model);
 
