@@ -9,15 +9,14 @@
 <script>
   //Trigger action when marker has been found https://ar-js-org.github.io/AR.js-Docs/ui-events/
   var pages = ['main_baladeuse','gab_application','papa_project'. 'conclusion'];
-  var numPages = pages.length;
-  for (var i = 0; i < numPages; i++) {
-      console.log(pages[i]);
-      AFRAME.registerComponent('marker_'+pages[i], {
+  
+  for (const [i, page] of pages.entries()) {
+      AFRAME.registerComponent('marker_'+page, {
         init: function () {
           var marker = this.el;
           marker.addEventListener('markerFound', () => {
             // redirect to custom URL e.g. google.com
-            window.location = 'https://vbernasconi.github.io/'+pages[i]+'.html';
+            window.location = 'https://vbernasconi.github.io/'+page+'.html';
           })
         }
       });
