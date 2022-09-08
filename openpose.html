@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+    rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+    crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <script>
       document.getElementById("imgClickAndChange").addEventListener("click", changeImage);
@@ -19,11 +21,10 @@
     </style>
   </head>
   <body style="margin : 0px;">
+    <div id="text_alert" class="alert alert-light fixed-top" role="alert">
+     Tap to perform body pose estimation
+   </div>
     <img alt="openpose" src="image_display/bhim00033971.jpg"
        style="height: 100%; width: 100%" id="imgClickAndChange" onclick="changeImage()"/>
-       <div class="alert alert-light" role="alert">
-        Tap to perform body pose estimation
-      </div>
   </body>
-
 </html>
