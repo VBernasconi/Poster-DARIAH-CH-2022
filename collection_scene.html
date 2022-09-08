@@ -26,7 +26,7 @@
     'bh000459_0_hand_left.png', 'bh000460_0_hand_right.png', 'bh000460_1_hand_left.png', 'bh000469_0_hand_right.png', 'bh000479_0_hand_left.png',
     'bh000479_1_hand_left.png', 'bh000479_2_hand_right.png', 'bh000525_0_hand_right.png', 'bh000541_0_hand_right.png', 'bh000554_2_hand_left.png'];
 
-    let scene = document.querySelector('a-scene');
+    var scene = document.querySelector('a-scene');
     for (const [i, file] of filelist.entries()) {
       x = Math.floor(Math.random() * 200);
       y = Math.floor(Math.random() * 200);
@@ -39,9 +39,8 @@
       model.setAttribute('scale', '800 800 800');
       model.setAttribute('position', x.toString()+' '+y.toString()+' '+z.toString());
 
-      const div = document.querySelector('.instructions');
-      div.innerText = model.info;
-
+      console.log(model);
+      
       scene.appendChild(model);
     }
 
