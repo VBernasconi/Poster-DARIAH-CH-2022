@@ -20,12 +20,16 @@
         x = Math.floor(Math.random() * 200);
         y = Math.floor(Math.random() * 200);
         z = Math.floor(Math.random() * 200);
-        let model = document.createElement('a-image');
+
+        var model = document.createElement('a-image');
         model.setAttribute('src', 'image_display/'+file);
         model.setAttribute('opacity', 1);
         model.setAttribute('rotation', '90 0 0');
         model.setAttribute('scale', '800 800 800');
         model.setAttribute('position', x.toString()+' '+y.toString()+' '+z.toString());
+
+        const div = document.querySelector('.instructions');
+        div.innerText = model.info;
 
         scene.appendChild(model);
       }
