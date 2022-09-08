@@ -33,6 +33,7 @@
       z = Math.floor(Math.random() * 200);
 
       var model = document.createElement('a-image');
+      model.setAttribute('src', 'image_display/output_hands_converted/'+file);
       model.object3D.position.set(x, y, z);
       model.object3D.rotation.set(90, 0 , 0);
       model.object3D.scale.set(800, 800, 800);
