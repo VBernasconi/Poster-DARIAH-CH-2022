@@ -8,7 +8,7 @@
 
 <script>
   //Trigger action when marker has been found https://ar-js-org.github.io/AR.js-Docs/ui-events/
-  var pages = ['main_baladeuse','gab_application','papa_project', 'conclusion'];
+  var pages = ['openpose','main_baladeuse','gab_application','papa_project', 'conclusion'];
 
   for (const [i, page] of pages.entries()) {
       AFRAME.registerComponent('marker_'+page, {
@@ -85,12 +85,17 @@
     arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
     id="scene"
   >
-    <!-- openpose -->
+    <!-- openpose THE CODE BELLOW IS WORKING TO DISPLAY AN IMAGE ON TOP OF NFT
     <a-nft type="nft" url="./image_tracking/nft/detail_hand/detail_hand_poster_half"
       smooth="true" smoothCount="5" smoothTolerance="0.01" smoothThreshold="2">
       <a-image src="./image_display/GAGA_bibhertz.png" position="100 50 0" opacity="1" transparent="true" scale="800 800 800" rotation="-90 0 0">
       </a-image>
+    </a-nft>-->
+
+    <a-nft marker_openpose type="nft" url="./image_tracking/nft/detail_hand/detail_hand_poster_half"
+      smooth="true" smoothCount="5" smoothTolerance="0.01" smoothThreshold="2">
     </a-nft>
+
     <!-- the collection
     <a-nft marker_ type="nft" url="./image_tracking/nft/detail_hand/detail_hand_poster_half">
       <a-image id="test" src="yourimage.png" position="0 0 0" rotation="-90 0 0" width="" height="" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="1 1 1" visible="" material="" geometry=""></a-image>
