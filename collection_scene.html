@@ -16,6 +16,9 @@
     <a-scene vr-mode-ui="enabled: false" embedded
     arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
       <a-image src="image_display/bhim00033971_0_hand_left.png" opacity="1" transparent="true" rotation="90 0 0" scale="800 800 800" gps-entity-place="longitude: 8.547000; latitude: 47.379520;" />
-      <a-camera gps-camera rotation-reader></a-camera>
+      <a-image src="image_display/bhim00033971_0_hand_left.png" position="100 50 0" opacity="1" transparent="true" scale="800 800 800" rotation="-90 0 0">
+      </a-image>
+      <!-- <a-camera gps-camera rotation-reader></a-camera>-->
+      <a-entity camera></a-entity>
 	</a-scene>
 </body>
