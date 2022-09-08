@@ -28,9 +28,9 @@
 
     var scene = document.querySelector('a-scene');
     for (const [i, file] of filelist.entries()) {
-      x = Math.floor(Math.random() * 200);
-      y = Math.floor(Math.random() * 200);
-      z = Math.floor(Math.random() * 200);
+      var x = Math.floor(Math.random() * 200);
+      var y = Math.floor(Math.random() * 200);
+      var z = Math.floor(Math.random() * 200);
 
       var model = document.createElement('a-image');
       model.setAttribute('src', 'image_display/output_hands_converted/'+file);
