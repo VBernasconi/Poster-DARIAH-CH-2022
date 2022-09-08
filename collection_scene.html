@@ -10,32 +10,6 @@
     <script>
         THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
     </script>
-    <script>
-      var filelist = ['bh000371_1_hand_left.png','bh000426_1_hand_right.png','bh000427_0_hand_left.png','bh000449_0_hand_left.png','bh000457_0_hand_right.png',
-      'bh000459_0_hand_left.png', 'bh000460_0_hand_right.png', 'bh000460_1_hand_left.png', 'bh000469_0_hand_right.png', 'bh000479_0_hand_left.png',
-      'bh000479_1_hand_left.png', 'bh000479_2_hand_right.png', 'bh000525_0_hand_right.png', 'bh000541_0_hand_right.png', 'bh000554_2_hand_left.png'];
-
-      let scene = document.querySelector('a-scene');
-      for (const [i, file] of filelist.entries()) {
-        x = Math.floor(Math.random() * 200);
-        y = Math.floor(Math.random() * 200);
-        z = Math.floor(Math.random() * 200);
-
-        var model = document.createElement('a-image');
-        model.setAttribute('src', 'image_display/'+file);
-        model.setAttribute('opacity', 1);
-        model.setAttribute('rotation', '90 0 0');
-        model.setAttribute('scale', '800 800 800');
-        model.setAttribute('position', x.toString()+' '+y.toString()+' '+z.toString());
-
-        const div = document.querySelector('.instructions');
-        div.innerText = model.info;
-
-        scene.appendChild(model);
-      }
-
-
-    </script>
 </head>
 
 <body style='margin: 0; overflow: hidden;'>
@@ -46,4 +20,31 @@
       </a-image>
     <a-camera gps-camera rotation-reader></a-camera>
 	</a-scene>
+
+  <script>
+    var filelist = ['bh000371_1_hand_left.png','bh000426_1_hand_right.png','bh000427_0_hand_left.png','bh000449_0_hand_left.png','bh000457_0_hand_right.png',
+    'bh000459_0_hand_left.png', 'bh000460_0_hand_right.png', 'bh000460_1_hand_left.png', 'bh000469_0_hand_right.png', 'bh000479_0_hand_left.png',
+    'bh000479_1_hand_left.png', 'bh000479_2_hand_right.png', 'bh000525_0_hand_right.png', 'bh000541_0_hand_right.png', 'bh000554_2_hand_left.png'];
+
+    let scene = document.querySelector('a-scene');
+    for (const [i, file] of filelist.entries()) {
+      x = Math.floor(Math.random() * 200);
+      y = Math.floor(Math.random() * 200);
+      z = Math.floor(Math.random() * 200);
+
+      var model = document.createElement('a-image');
+      model.setAttribute('src', 'image_display/'+file);
+      model.setAttribute('opacity', 1);
+      model.setAttribute('rotation', '90 0 0');
+      model.setAttribute('scale', '800 800 800');
+      model.setAttribute('position', x.toString()+' '+y.toString()+' '+z.toString());
+
+      const div = document.querySelector('.instructions');
+      div.innerText = model.info;
+
+      scene.appendChild(model);
+    }
+
+
+  </script>
 </body>
