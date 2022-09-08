@@ -8,7 +8,21 @@
 
 <script>
   //Trigger action when marker has been found https://ar-js-org.github.io/AR.js-Docs/ui-events/
-  AFRAME.registerComponent('marker_', {
+  var pages = ['main_baladeuse','gab_application','papa_project'. 'conclusion'];
+  var numPages = pages.length;
+  for (var i = 0; i < numPages; i++) {
+      console.log(pages[i]);
+      AFRAME.registerComponent('marker_'+pages[i], {
+        init: function () {
+          var marker = this.el;
+          marker.addEventListener('markerFound', () => {
+            // redirect to custom URL e.g. google.com
+            window.location = 'https://vbernasconi.github.io/'+pages[i]+'.html';
+          })
+        }
+      });
+  }
+  /*AFRAME.registerComponent('marker_main_baladeuse', {
     init: function () {
       var marker = this.el;
       marker.addEventListener('markerFound', () => {
@@ -16,7 +30,7 @@
         window.location = 'https://vbernasconi.github.io/main_baladeuse.html';
       })
     }
-  });
+  });*/
 
   //Trigger action when marker has been found https://ar-js-org.github.io/AR.js-Docs/ui-events/
 /*
@@ -81,25 +95,26 @@
     <a-nft marker_ type="nft" url="./image_tracking/nft/detail_hand/detail_hand_poster_half">
       <a-image id="test" src="yourimage.png" position="0 0 0" rotation="-90 0 0" width="" height="" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="1 1 1" visible="" material="" geometry=""></a-image>
     </a-nft>-->
-    <!-- PAPA project
+    <!-- PAPA project-->
     <a-nft marker_papa_project  type="nft" url="./image_tracking/nft/detail_hand/detail_hand_poster_half">
     </a-nft>
-    -->
+
     <!-- GAB application-->
-    <a-nft marker_ type="nft" url="./image_tracking/nft/detail_hand/gab_application">
+    <a-nft marker_gab_application type="nft" url="./image_tracking/nft/detail_hand/gab_application">
       <div class="spinner-border text-danger" role="status">
         <span class="visually-hidden">Loading...</span>
       </div>
     </a-nft>
-    <!-- main baladeuse-
+    <!-- main baladeuse-->
     <a-nft marker_main_baladeuse type="nft" url="./image_tracking/nft/detail_hand/new_perceptions">
+      <div class="spinner-border text-danger" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
     </a-nft>
-    <!-- conclusion
+    <!-- conclusion-->
     <a-nft type="nft" url="./image_tracking/nft/detail_hand/conclusion"
       smooth="true" smoothCount="5" smoothTolerance="0.01" smoothThreshold="2">
-      <a-entity id="test" material="shader:gif; src:url(https://vbernasconi.github.io/image_display/gif/KNN_movie_2022-08-17_16-07.gif)" position="100 50 0" rotation="-90 0 0"
-        opacity="1" transparent="true" scale="800 800 800"></a-entity>
-    </a-nft>-->
+    </a-nft>
 
     <a-entity gps-camera></a-entity>
   </a-scene>
