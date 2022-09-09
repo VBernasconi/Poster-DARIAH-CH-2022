@@ -25,13 +25,35 @@
         font-family: 'Roboto', serif;
         font-size: 48px;
       }
+      #loading {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        position: fixed;
+        display: block;
+        opacity: 0.7;
+        background-color: #fff;
+        z-index: 99;
+        text-align: center;
+      }
     </style>
   </head>
   <body style="margin : 0px;">
     <div id="text_alert" class="alert alert-light fixed-top fs-5" role="alert">
      Tap to perform body pose estimation
    </div>
+   <div id="loading" class="d-flex justify-content-center">
+     <div class="spinner-grow text-warning" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
     <img alt="openpose" src="image_display/bhim00033971.jpg"
        style="height: 100%; width: 100%" id="imgClickAndChange" onclick="changeImage()"/>
+    <script>
+      $(window).load(function() {
+        $('#loading').hide();
+     });
+    </script>
   </body>
 </html>
