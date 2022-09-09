@@ -1,152 +1,197 @@
-<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
-<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-<script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
-<script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script>
+<!doctype html>
+  <html>
+    <head>
+      <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+      <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+      <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+      <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script>
 
-<script src="gesture_detector.js"></script>
-<script src="gesture_handler.js"></script>
+      <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+      <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+      <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
+      <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
 
-<script>
-  //Trigger action when marker has been found https://ar-js-org.github.io/AR.js-Docs/ui-events/
-  var pages = ['openpose','main_baladeuse','gab_application','papa_project', 'conclusion'];
+      <script src="gesture_detector.js"></script>
+      <script src="gesture_handler.js"></script>
 
-  for (const [i, page] of pages.entries()) {
-      AFRAME.registerComponent('marker_'+page, {
+      <script>
+        //Trigger action when marker has been found https://ar-js-org.github.io/AR.js-Docs/ui-events/
+        var pages = ['openpose','main_baladeuse','gab_application','papa_project', 'conclusion'];
+
+        for (const [i, page] of pages.entries()) {
+            AFRAME.registerComponent('marker_'+page, {
+              init: function () {
+                var marker = this.el;
+                marker.addEventListener('markerFound', () => {
+                  // redirect to custom URL e.g. google.com
+                  console.log('https://vbernasconi.github.io/'+page+'.html')
+                  window.location = 'https://vbernasconi.github.io/'+page+'.html';
+                })
+              }
+            });
+        };
+
+        AFRAME.registerComponent('videohandler', {
+          init: function () {
+            var marker = this.el;
+            this.vid = document.querySelector('hand_animation');
+
+            marker.addEventListener('markerFound', function () {
+                this.toggle = true;
+                this.vid.play();
+            }.bind(this));
+
+            marker.addEventListener('markerLost', function () {
+                this.toggle = false;
+                this.vid.pause();
+            }.bind(this));
+          },
+        });
+      /*AFRAME.registerComponent('marker_main_baladeuse', {
         init: function () {
           var marker = this.el;
           marker.addEventListener('markerFound', () => {
             // redirect to custom URL e.g. google.com
-            console.log('https://vbernasconi.github.io/'+page+'.html')
-            window.location = 'https://vbernasconi.github.io/'+page+'.html';
+            window.location = 'https://vbernasconi.github.io/main_baladeuse.html';
+          })
+        }
+      });*/
+
+      //Trigger action when marker has been found https://ar-js-org.github.io/AR.js-Docs/ui-events/
+    /*
+      AFRAME.registerComponent('marker_papa_project', {
+        init: function () {
+          this.el.sceneEl.addEventListener('markerFound', () => {
+            console.log("Found marker papa project");
+            window.location = 'https://vbernasconi.github.io/papa_project.html';
           })
         }
       });
-  };
+      AFRAME.registerComponent('marker_gab_application', {
+        init: function () {
+          this.el.sceneEl.addEventListener('markerFound', () => {
+            console.log("Found marker gab application");
+            window.location = 'https://vbernasconi.github.io/gab_application.html';
+          })
+        }
+      });*/
 
-  AFRAME.registerComponent('marker_yesh', {
-    init: function () {
-      var marker = this.el;
-      marker.addEventListener('markerFound', () => {
-        console.log('WE FOUND THE VIDEO!!')
-        var vid = document.getElementById('hand_animation');
-        // Make sure that the video a-frame object is visible
-        document.querySelector('#animation').setAttribute('visible', true);
-        // Reset the video to the beginning and play it through
-        vid.currentTime = 0;
-        vid.play();
+      </script>
+    </head>
+    <style>
+      .arjs-loader {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-      })
-    }
-  });
-  /*AFRAME.registerComponent('marker_main_baladeuse', {
-    init: function () {
-      var marker = this.el;
-      marker.addEventListener('markerFound', () => {
-        // redirect to custom URL e.g. google.com
-        window.location = 'https://vbernasconi.github.io/main_baladeuse.html';
-      })
-    }
-  });*/
+      .arjs-loader div {
+        text-align: center;
+        font-size: 1.25em;
+        color: white;
+      }
+    </style>
 
-  //Trigger action when marker has been found https://ar-js-org.github.io/AR.js-Docs/ui-events/
-/*
-  AFRAME.registerComponent('marker_papa_project', {
-    init: function () {
-      this.el.sceneEl.addEventListener('markerFound', () => {
-        console.log("Found marker papa project");
-        window.location = 'https://vbernasconi.github.io/papa_project.html';
-      })
-    }
-  });
-  AFRAME.registerComponent('marker_gab_application', {
-    init: function () {
-      this.el.sceneEl.addEventListener('markerFound', () => {
-        console.log("Found marker gab application");
-        window.location = 'https://vbernasconi.github.io/gab_application.html';
-      })
-    }
-  });*/
-</script>
-
-<style>
-  .arjs-loader {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .arjs-loader div {
-    text-align: center;
-    font-size: 1.25em;
-    color: white;
-  }
-</style>
-
-<body style="margin : 0px; overflow: hidden;">
-  <!-- minimal loader shown until image descriptors are loaded -->
-  <div class="arjs-loader">
-    <div>Loading, please wait...</div>
-  </div>
-  <a-scene
-    vr-mode-ui="enabled: false;"
-    renderer="logarithmicDepthBuffer: true; precision: medium;"
-    embedded
-    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
-    id="scene"
-  >
-  <a-assets>
-    <video id="hand_animation" autoplay loop="true" src="image_display/mp4/dancing_hand.mp4" preload="auto"></video>
-  </a-assets>
-
-    <!-- openpose THE CODE BELLOW IS WORKING TO DISPLAY AN IMAGE ON TOP OF NFT
-    <a-nft type="nft" url="./image_tracking/nft/detail_hand/detail_hand_poster_half"
-      smooth="true" smoothCount="5" smoothTolerance="0.01" smoothThreshold="2">
-      <a-image src="./image_display/GAGA_bibhertz.png" position="100 50 0" opacity="1" transparent="true" scale="800 800 800" rotation="-90 0 0">
-      </a-image>
-    </a-nft>-->
-
-    <a-nft marker_openpose type="nft" url="./image_tracking/nft/detail_hand/detail_hand_poster_half"
-      smooth="true" smoothCount="5" smoothTolerance="0.01" smoothThreshold="2">
-    </a-nft>
-
-    <!-- the collection
-    <a-nft marker_ type="nft" url="./image_tracking/nft/detail_hand/detail_hand_poster_half">
-      <a-image id="test" src="yourimage.png" position="0 0 0" rotation="-90 0 0" width="" height="" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="1 1 1" visible="" material="" geometry=""></a-image>
-    </a-nft>-->
-    <!-- PAPA project
-    <a-nft marker_papa_project  type="nft" url="./image_tracking/nft/detail_hand/detail_hand_poster_half">
-    </a-nft>-->
-
-    <!-- GAB application-->
-    <a-nft marker_gab_application type="nft" url="./image_tracking/nft/detail_hand/gab_application">
-      <div class="spinner-border text-danger" role="status">
-        <span class="visually-hidden">Loading...</span>
+    <body style="margin : 0px; overflow: hidden;">
+      <!-- minimal loader shown until image descriptors are loaded -->
+      <div class="arjs-loader">
+        <div>Loading, please wait...</div>
       </div>
-    </a-nft>
-    <!-- main baladeuse
-    <a-nft marker_main_baladeuse type="nft" url="./image_tracking/nft/detail_hand/new_perceptions">
-      <div class="spinner-border text-danger" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    </a-nft>-->
-    <!-- conclusion-->
-    <a-nft marker_yesh type="nft" url="./image_tracking/nft/detail_hand/new_perceptions">
-    <!-- <a-marker marker_yesh type="pattern" preset="custom" url="image_tracking/marker/pattern-detail_animation.patt"> -->
-      <a-video id="animation" src="#hand_animation" width="16" height="9" position="0 0 0" autoplay="True"></a-video>
-    <!-- </a-marker>-->
-    </a-nft>
+      <a-scene
+        vr-mode-ui="enabled: false;"
+        renderer="logarithmicDepthBuffer: true; precision: medium;"
+        arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
+        id="scene"
+        embedded
+        gesture-detector
+      >
+      <a-assets>
+        <video
+          id="hand_animation"
+          src="image_display/mp4/dancing_hand.mp4"
+          preload="auto"
+          response-type="arraybuffer"
+          loop
+          crossorigin
+          webkit-playsinline
+          autoplay
+          muted
+          playsinline
+        ></video>
+      </a-assets>
 
-    <a-nft type="nft" url="./image_tracking/nft/detail_hand/conclusion"
-      smooth="true" smoothCount="5" smoothTolerance="0.01" smoothThreshold="2">
-    </a-nft>
+        <!-- openpose THE CODE BELLOW IS WORKING TO DISPLAY AN IMAGE ON TOP OF NFT
+        <a-nft type="nft" url="./image_tracking/nft/detail_hand/detail_hand_poster_half"
+          smooth="true" smoothCount="5" smoothTolerance="0.01" smoothThreshold="2">
+          <a-image src="./image_display/GAGA_bibhertz.png" position="100 50 0" opacity="1" transparent="true" scale="800 800 800" rotation="-90 0 0">
+          </a-image>
+        </a-nft>-->
 
-    <a-entity camera></a-entity>
-  </a-scene>
-</body>
+        <a-nft marker_openpose type="nft" url="./image_tracking/nft/detail_hand/detail_hand_poster_half"
+          smooth="true" smoothCount="5" smoothTolerance="0.01" smoothThreshold="2">
+        </a-nft>
+
+        <!-- the collection
+        <a-nft marker_ type="nft" url="./image_tracking/nft/detail_hand/detail_hand_poster_half">
+          <a-image id="test" src="yourimage.png" position="0 0 0" rotation="-90 0 0" width="" height="" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="1 1 1" visible="" material="" geometry=""></a-image>
+        </a-nft>-->
+        <!-- PAPA project
+        <a-nft marker_papa_project  type="nft" url="./image_tracking/nft/detail_hand/detail_hand_poster_half">
+        </a-nft>-->
+
+        <!-- GAB application-->
+        <a-nft marker_gab_application type="nft" url="./image_tracking/nft/detail_hand/gab_application">
+          <div class="spinner-border text-danger" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </a-nft>
+        <!-- main baladeuse
+        <a-nft marker_main_baladeuse type="nft" url="./image_tracking/nft/detail_hand/new_perceptions">
+          <div class="spinner-border text-danger" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </a-nft>-->
+        <!-- conclusion-->
+        <a-marker
+            type="pattern"
+            preset="custom"
+            url="assets/marker.patt"
+            videohandler
+            smooth="true"
+            smoothCount="10"
+            smoothTolerance="0.01"
+            smoothThreshold="5"
+            raycaster="objects: .clickable"
+            emitevents="true"
+            cursor="fuse: false; rayOrigin: mouse;"
+            id="markerA"
+        >
+            <a-video
+                src="#hand_animation"
+                scale="1 1 1"
+                position="0 0.1 0"
+                rotation="-90 0 0"
+                class="clickable"
+                gesture-handler
+            ></a-video>
+        </a-marker>
+        <!--<a-nft marker_yesh type="nft" url="./image_tracking/nft/detail_hand/new_perceptions">
+        <!-- <a-marker marker_yesh type="pattern" preset="custom" url="image_tracking/marker/pattern-detail_animation.patt"> -->
+        <!--  <a-video id="animation" src="#hand_animation" width="16" height="9" position="0 0 0" autoplay="True"></a-video>
+        <!-- </a-marker>-->
+        <!--</a-nft>-->
+
+        <a-nft type="nft" url="./image_tracking/nft/detail_hand/conclusion"
+          smooth="true" smoothCount="5" smoothTolerance="0.01" smoothThreshold="2">
+        </a-nft>
+
+        <a-entity camera></a-entity>
+      </a-scene>
+    </body>
