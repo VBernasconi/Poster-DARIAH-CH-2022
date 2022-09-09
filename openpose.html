@@ -8,22 +8,51 @@
     crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <script>
+
+      async function loadImage(imageUrl) {
+          document.getElementById('loading').style.display = 'block';
+          let img;
+          const imageLoadPromise = new Promise(resolve => {
+              img = new Image();
+              img.onload = resolve;
+              img.src = imageUrl;
+          });
+
+          await imageLoadPromise;
+          console.log("image loaded");
+          hideloader();
+          return img;
+      }
       var state = 0
       document.getElementById("imgClickAndChange").addEventListener("click", changeImage);
       function changeImage() {
         if(state == 0){
-          document.getElementById("imgClickAndChange").src = "image_display/bhim00033971_rendered.png";
+
+
+          loadImage("image_display/bhim00033971_rendered.png");
+
+          /*document.getElementById("imgClickAndChange").src = "image_display/bhim00033971_rendered.png";
+          */
           document.getElementById("text_alert").innerHTML = "Tap to get a collection of hands";
           state = 1
         }else{
           window.location = 'https://vbernasconi.github.io/collection_scene.html';
         }
       };
+      function hideloader() {
+            document.getElementById('loading').style.display = 'none';
+        }
     </script>
     <style>
       body {
         font-family: 'Roboto', serif;
         font-size: 48px;
+      }
+      #loading{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 900;
       }
     </style>
   </head>
