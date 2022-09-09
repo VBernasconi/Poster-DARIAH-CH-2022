@@ -128,10 +128,20 @@
       </div>
     </a-nft>-->
     <!-- conclusion-->
-    <a-marker marker_yesh type="pattern" preset="custom" url="image_tracking/marker/pattern-detail_animation.patt">
+    <a-nft
+    type="nft"
+    url="./image_tracking/nft/detail_hand/new_perceptions"
+    smooth="true"
+    smoothCount="10"
+    smoothTolerance="0.01"
+    smoothThreshold="5"
+    position="0 0 0"
+    >
+    <!-- <a-marker marker_yesh type="pattern" preset="custom" url="image_tracking/marker/pattern-detail_animation.patt"> -->
       <a-video autoplay src="image_display/mp4/dancing_hand.mp4" id="Video_0" class="intersectable" width="1" height="1" position="0 0 0" rotation="0 0 0" color="#FFFFFF" transparent=False></a-video>
-    </a-marker>
-    
+    <!-- </a-marker>-->
+    </a-nft>
+
     <a-nft type="nft" url="./image_tracking/nft/detail_hand/conclusion"
       smooth="true" smoothCount="5" smoothTolerance="0.01" smoothThreshold="2">
     </a-nft>
