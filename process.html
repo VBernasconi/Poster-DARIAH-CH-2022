@@ -23,15 +23,21 @@
       });
   };
 
-AFRAME.registerComponent('marker_yesh', {
-  init: function () {
-    var marker = this.el;
-    marker.addEventListener('markerFound', () => {
-      // redirect to custom URL e.g. google.com
-      console.log('WE FOUND THE VIDEO!!')
-    })
-  }
-});
+  AFRAME.registerComponent('marker_yesh', {
+    init: function () {
+      var marker = this.el;
+      marker.addEventListener('markerFound', () => {
+        console.log('WE FOUND THE VIDEO!!')
+        var vid = document.getElementById('hand_animation');
+        // Make sure that the video a-frame object is visible
+        document.querySelector('#animation').setAttribute('visible', true);
+        // Reset the video to the beginning and play it through
+        vid.currentTime = 0;
+        vid.play();
+
+      })
+    }
+  });
   /*AFRAME.registerComponent('marker_main_baladeuse', {
     init: function () {
       var marker = this.el;
@@ -133,7 +139,7 @@ AFRAME.registerComponent('marker_yesh', {
     <!-- conclusion-->
     <a-nft marker_yesh type="nft" url="./image_tracking/nft/detail_hand/new_perceptions">
     <!-- <a-marker marker_yesh type="pattern" preset="custom" url="image_tracking/marker/pattern-detail_animation.patt"> -->
-      <a-video src="#hand_animation" width="16" height="9" position="0 0 0"></a-video>
+      <a-video id="animation" src="#hand_animation" width="16" height="9" position="0 0 0"></a-video>
     <!-- </a-marker>-->
     </a-nft>
 
