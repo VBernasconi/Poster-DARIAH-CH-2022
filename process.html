@@ -23,6 +23,15 @@
       });
   };
 
+AFRAME.registerComponent('marker_yesh', {
+  init: function () {
+    var marker = this.el;
+    marker.addEventListener('markerFound', () => {
+      // redirect to custom URL e.g. google.com
+      console.log('WE FOUND THE VIDEO!!')
+    })
+  }
+});
   /*AFRAME.registerComponent('marker_main_baladeuse', {
     init: function () {
       var marker = this.el;
@@ -122,7 +131,7 @@
       </div>
     </a-nft>-->
     <!-- conclusion-->
-    <a-nft type="nft" url="./image_tracking/nft/detail_hand/new_perceptions">
+    <a-nft marker_yesh type="nft" url="./image_tracking/nft/detail_hand/new_perceptions">
     <!-- <a-marker marker_yesh type="pattern" preset="custom" url="image_tracking/marker/pattern-detail_animation.patt"> -->
       <a-video src="#hand_animation" width="16" height="9" position="0 0 0"></a-video>
     <!-- </a-marker>-->
