@@ -23,16 +23,6 @@
       });
   };
 
-  AFRAME.registerComponent('marker_yesh', {
-    init: function () {
-      var marker = this.el;
-      marker.addEventListener('markerFound', () => {
-        // redirect to custom URL e.g. google.com
-        console.log('THE VIDEO THING WAS FOUND')
-      })
-    }
-  });
-
   /*AFRAME.registerComponent('marker_main_baladeuse', {
     init: function () {
       var marker = this.el;
@@ -96,6 +86,10 @@
     arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
     id="scene"
   >
+  <a-assets>
+    <video id="hand_animation" autoplay loop="true" src="image_display/mp4/dancing_hand.mp4"></video>
+  </a-assets>
+
     <!-- openpose THE CODE BELLOW IS WORKING TO DISPLAY AN IMAGE ON TOP OF NFT
     <a-nft type="nft" url="./image_tracking/nft/detail_hand/detail_hand_poster_half"
       smooth="true" smoothCount="5" smoothTolerance="0.01" smoothThreshold="2">
@@ -128,17 +122,9 @@
       </div>
     </a-nft>-->
     <!-- conclusion-->
-    <a-nft
-    type="nft"
-    url="./image_tracking/nft/detail_hand/new_perceptions"
-    smooth="true"
-    smoothCount="10"
-    smoothTolerance="0.01"
-    smoothThreshold="5"
-    position="0 0 0"
-    >
+    <a-nft type="nft" url="./image_tracking/nft/detail_hand/new_perceptions" smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" position="0 0 0">
     <!-- <a-marker marker_yesh type="pattern" preset="custom" url="image_tracking/marker/pattern-detail_animation.patt"> -->
-      <a-video autoplay src="image_display/mp4/dancing_hand.mp4" id="Video_0" class="intersectable" width="1" height="1" position="0 0 0" rotation="0 0 0" color="#FFFFFF" transparent=False></a-video>
+      <a-video src="#hand_animation" width="16" height="9" position="0 0 -20"></a-video>
     <!-- </a-marker>-->
     </a-nft>
 
