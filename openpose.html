@@ -34,7 +34,8 @@
 
    <script>
      var state = 0
-
+     document.getElementById('loading').style.display = 'none';
+     
      async function loadImage(imageUrl) {
          document.getElementById('loading').style.display = 'block';
          let img;
