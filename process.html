@@ -102,7 +102,7 @@
     id="scene"
   >
   <a-assets>
-    <video id="hand_animation" autoplay loop="true" src="image_display/mp4/dancing_hand.mp4"></video>
+    <video id="hand_animation" autoplay loop="true" src="image_display/mp4/dancing_hand.mp4" preload="auto"></video>
   </a-assets>
 
     <!-- openpose THE CODE BELLOW IS WORKING TO DISPLAY AN IMAGE ON TOP OF NFT
@@ -139,7 +139,7 @@
     <!-- conclusion-->
     <a-nft marker_yesh type="nft" url="./image_tracking/nft/detail_hand/new_perceptions">
     <!-- <a-marker marker_yesh type="pattern" preset="custom" url="image_tracking/marker/pattern-detail_animation.patt"> -->
-      <a-video id="animation" src="#hand_animation" width="16" height="9" position="0 0 0"></a-video>
+      <a-video id="animation" src="#hand_animation" width="16" height="9" position="0 0 0" autoplay="True"></a-video>
     <!-- </a-marker>-->
     </a-nft>
 
