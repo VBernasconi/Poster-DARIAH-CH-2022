@@ -33,6 +33,8 @@
        style="height: 100%; width: 100%" id="imgClickAndChange" onclick="changeImage()"/>
 
    <script>
+     var state = 0
+
      async function loadImage(imageUrl) {
          document.getElementById('loading').style.display = 'block';
          let img;
@@ -44,28 +46,22 @@
 
          await imageLoadPromise;
          console.log("image loaded");
-         hideloader();
+         document.getElementById('loading').style.display = 'none';
          return img;
      }
-     var state = 0
+
      document.getElementById("imgClickAndChange").addEventListener("click", changeImage);
      function changeImage() {
        if(state == 0){
-
-
          loadImage("image_display/bhim00033971_rendered.png");
-
          /*document.getElementById("imgClickAndChange").src = "image_display/bhim00033971_rendered.png";
          */
          document.getElementById("text_alert").innerHTML = "Tap to get a collection of hands";
-         state = 1
        }else{
          window.location = 'https://vbernasconi.github.io/collection_scene.html';
        }
+       state = 1
      };
-     function hideloader() {
-           document.getElementById('loading').style.display = 'none';
-       }
    </script>
   </body>
 </html>
