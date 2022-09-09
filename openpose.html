@@ -44,6 +44,7 @@
          });
 
          await imageLoadPromise;
+
          console.log("image loaded");
          document.getElementById('loading').style.display = 'none';
          return img;
@@ -53,8 +54,7 @@
      function changeImage() {
        if(state == 0){
          loadImage("image_display/bhim00033971_rendered.png");
-         /*document.getElementById("imgClickAndChange").src = "image_display/bhim00033971_rendered.png";
-         */
+         document.getElementById("imgClickAndChange").src = "image_display/bhim00033971_rendered.png";
          document.getElementById("text_alert").innerHTML = "Tap to get a collection of hands";
        }else{
          window.location = 'https://vbernasconi.github.io/collection_scene.html';
