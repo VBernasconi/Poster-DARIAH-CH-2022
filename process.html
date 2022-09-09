@@ -21,8 +21,9 @@
           })
         }
       });
-  }
-  AFRAME.registerComponent(marker_yesh{
+  };
+  
+  AFRAME.registerComponent(marker_yesh, {
     init: function () {
       var marker = this.el;
       marker.addEventListener('markerFound', () => {
