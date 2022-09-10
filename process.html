@@ -6,8 +6,8 @@
 
 
       <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-      <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-      <!--<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>-->
+      <!--<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>-->
+      <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
       <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
       <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
 
@@ -130,10 +130,10 @@
           <a-image src="./image_display/GAGA_bibhertz.png" position="100 50 0" opacity="1" transparent="true" scale="800 800 800" rotation="-90 0 0">
           </a-image>
         </a-nft>-->
-
+<!--
         <a-nft marker_openpose type="nft" url="./image_tracking/nft/detail_hand/detail_hand_poster_half"
           smooth="true" smoothCount="5" smoothTolerance="0.01" smoothThreshold="2">
-        </a-nft>
+        </a-nft>--
 
         <!-- the collection
         <a-nft marker_ type="nft" url="./image_tracking/nft/detail_hand/detail_hand_poster_half">
@@ -143,12 +143,12 @@
         <a-nft marker_papa_project  type="nft" url="./image_tracking/nft/detail_hand/detail_hand_poster_half">
         </a-nft>-->
 
-        <!-- GAB application-->
+        <!-- GAB application
         <a-nft marker_gab_application type="nft" url="./image_tracking/nft/detail_hand/gab_application">
           <div class="spinner-border text-danger" role="status">
             <span class="visually-hidden">Loading...</span>
           </div>
-        </a-nft>
+        </a-nft>-->
         <!-- main baladeuse
         <a-nft marker_main_baladeuse type="nft" url="./image_tracking/nft/detail_hand/new_perceptions">
           <div class="spinner-border text-danger" role="status">
@@ -171,7 +171,7 @@
             cursor="fuse: false; rayOrigin: mouse;"
             id="markerA"
         >
-      </a-marker>-->
+      </a-marker>
         <a-nft videohandler type="nft" url="./image_tracking/nft/detail_hand/new_perceptions" smooth="true"
         smoothCount="10"
         smoothTolerance="0.01"
@@ -189,18 +189,44 @@
                 class="clickable"
                 gesture-handler
             ></a-video>
-        </a-nft>
-
+        </a-nft>-->
         <!--<a-nft marker_yesh type="nft" url="./image_tracking/nft/detail_hand/new_perceptions">
         <!-- <a-marker marker_yesh type="pattern" preset="custom" url="image_tracking/marker/pattern-detail_animation.patt"> -->
         <!--  <a-video id="animation" src="#hand_animation" width="16" height="9" position="0 0 0" autoplay="True"></a-video>
         <!-- </a-marker>-->
         <!--</a-nft>-->
+        <a-marker marker_openpose type="pattern" preset="custom" url="image_tracking/marker/pattern-index_marker.patt">
+        </a-marker>
+        <a-marker marker_papa_project type="pattern" preset="custom" url="image_tracking/marker/pattern-middle_finger_marker.patt">
+        </a-marker>
+        <a-marker marker_conclusion type="pattern" preset="custom" url="image_tracking/marker/pattern-little_finger_marker.patt">
+        </a-marker>
+        <a-marker videohandler type="pattern" preset="custom" url="image_tracking/marker/pattern-ring_finger_marker.patt" smooth="true"
+        smoothCount="10"
+        smoothTolerance="0.01"
+        smoothThreshold="5"
+        raycaster="objects: .clickable"
+        emitevents="true"
+        cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA">
+          <a-video
+              src="#hand_animation"
+              scale="800 800 800"
+              position="100 50 0"
+              rotation="-90 0 0"
+              class="clickable"
+              gesture-handler
+          ></a-video>
+        </a-marker>
+        <a-marker marker_gab_application type="pattern" preset="custom" url="image_tracking/marker/pattern-thumb_finger_marker.patt">
 
+        </a-marker>
+
+<!--
         <a-nft type="nft" url="./image_tracking/nft/detail_hand/conclusion"
           smooth="true" smoothCount="5" smoothTolerance="0.01" smoothThreshold="2">
         </a-nft>
-
+-->
         <a-entity camera></a-entity>
       </a-scene>
     </body>
