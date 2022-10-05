@@ -25,12 +25,19 @@
             obj-model="obj: url(image_display/unifr/madonna_kind.obj);
             mtl: url(image_display/unifr/madonna_kind.mtl)">
       </a-entity>-->
-      <a-entity
+
+      <a-assets>
+       <a-asset-item id="tree-obj" src="image_display/unifr/madonna_kind.obj"></a-asset-item>
+       <a-asset-item id="tree-mtl" src="image_display/unifr/madonna_kind.mtl"></a-asset-item>
+     </a-assets>
+
+     <a-entity obj-model="obj: #tree-obj; mtl: #tree-mtl"></a-entity>
+    <!-- <a-entity
        obj-model="obj: url(image_display/unifr/madonna_kind.obj); mtl: url(image_display/unifr/madonna_kind.mtl)"
        scale="100 100 100"
        position="0 0 0"
      >
-     </a-entity>
+     </a-entity> -->
     <a-camera gps-camera rotation-reader></a-camera>
 	</a-scene>
   <script>
