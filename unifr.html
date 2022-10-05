@@ -34,34 +34,5 @@
     <a-camera gps-camera rotation-reader></a-camera>
 	</a-scene>
   <script>
-    /*
-    var filelist = ['bh000371_1_hand_left.png','bh000426_1_hand_right.png','bh000427_0_hand_left.png','bh000449_0_hand_left.png','bh000457_0_hand_right.png',
-    'bh000459_0_hand_left.png', 'bh000460_0_hand_right.png', 'bh000460_1_hand_left.png', 'bh000469_0_hand_right.png', 'bh000479_0_hand_left.png',
-    'bh000479_1_hand_left.png', 'bh000479_2_hand_right.png', 'bh000525_0_hand_right.png', 'bh000541_0_hand_right.png', 'bh000554_2_hand_left.png'];
-
-    var scene = document.querySelector('a-scene');
-    for (const [i, file] of filelist.entries()) {
-      var x = Math.floor(Math.random() * 400);
-      var y = Math.floor(Math.random() * 400);
-      var z = Math.floor(Math.random() * 400);
-
-      var model = document.createElement('a-image');
-      model.setAttribute('src', 'image_display/output_hands_converted/'+file);
-      model.object3D.position.set(x, y, z);
-      model.object3D.rotation.set(90, 0 , 0);
-      model.object3D.scale.set(500, 500, 500);
-      model.setAttribute('opacity', 1);
-      /* model.setAttribute('src', 'image_display/output_hands_converted/'+file);
-      model.setAttribute('opacity', 1);
-      model.setAttribute('rotation', {x:90, y:0, z:0});
-      model.setAttribute('scale', {x:800, y:800, z:800});
-      model.setAttribute('position', {x: x, y: y, z: z});*/
-      /*
-      console.log(model);
-
-      scene.appendChild(model);
-    }*/
-
-
   </script>
 </body>
